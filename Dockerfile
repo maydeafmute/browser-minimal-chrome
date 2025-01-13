@@ -6,6 +6,7 @@ ENV WEBHOOK_URL="http://localhost/"
 ENV URL=https://google.com/
 ENV BANDWIDTH=15000
 ENV LANGUAGE="en"
+ENV PORT=5900
 
 RUN  echo "deb http://deb.debian.org/debian bullseye contrib non-free" >> /etc/apt/sources.list && \
 	apt-get update && \
