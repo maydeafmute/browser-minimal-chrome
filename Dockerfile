@@ -1,12 +1,25 @@
 FROM debian:stable-slim
 
 ENV TURBOVNC_V="3.0.3"
-ENV SERVICE_NAME="UNDEFINED"
-ENV WEBHOOK_URL="http://localhost/"
 ENV URL=https://google.com/
-ENV BANDWIDTH=15000
 ENV LANGUAGE="en"
 ENV PORT=5900
+ENV CHROME_ARGS="-no-sandbox \
+                 --disable-accelerated-video \
+                 --bwsi \
+                 --new-window \
+                 --test-type \
+                 --disable-accelerated-video \
+                 --disable-gpu \
+                 --dbus-stub \
+                 --no-default-browser-check \
+                 --no-first-run \
+                 --bwsi \
+                 --user-data-dir=/browser \
+                 --disable-features=Titlebar \
+                 --disable-dev-shm-usage \
+                 --remote-debugging-port=9222 \
+                 --remote-debugging-address=0.0.0.0"
 
 RUN  echo "deb http://deb.debian.org/debian bullseye contrib non-free" >> /etc/apt/sources.list && \
 	apt-get update && \
